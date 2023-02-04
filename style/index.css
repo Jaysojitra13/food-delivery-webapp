@@ -1,0 +1,32 @@
+.navbar {
+  border-radius: 0px;
+}
+
+.navbar-inverse {
+  background-color: #4a2e2e !important;
+  border-color: none !important;
+}
+
+.hamburger {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: block;
+    float: right;
+    margin: 9px 9px 5px
+  }
+
+  .navbar-nav {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+
+  .navbar-nav {
+    display: flex;
+  }
+}
+
