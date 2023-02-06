@@ -6,11 +6,11 @@ $(document).ready(function() {
   showBtn.addEventListener('click', () => {
     buttonClicked = !buttonClicked;
 
-    if (buttonClicked) {
-      $('#navbar-list').css("display", 'block')
-    } else {
-      $('#navbar-list').css("display", 'none')
-    }
+    // if (buttonClicked) {
+    //   $('#navbar-list').css("display", 'block')
+    // } else {
+    //   $('#navbar-list').css("display", 'none')
+    // }
     
     console.log("CLICKED", navbarList)
   });
