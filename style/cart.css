@@ -1,0 +1,71 @@
+.card {
+  margin-top: 20px;
+}
+
+.card, .card-header, .card-body, .card-footer {
+  border: none;
+}
+
+.cartImage {
+  height: 70px;
+  width: 70px;
+  border-radius: 4px;
+}
+
+.cartItemDetails {
+  margin-left: 30px;
+}
+
+.quantity {
+  margin-left: 10px;
+  width: 20%;
+  padding: 0px 5px;
+}
+
+.plusIcon {
+  margin-left: 10px;
+}
+
+.minusIcon, .plusIcon {
+  margin-top: 5px;
+  border: 1px solid;
+  padding: 4px;
+  border-radius: 30%;
+  width: 10%;
+}
+
+.card-body > * {
+  margin-top: 30px;
+  /* padding-bottom: 10px;
+  border-bottom: 1px solid; */
+}
+
+.addMoreItemButton {
+  text-decoration: none;
+  color: white;
+}
+
+.wd-100{
+  width: 100% !important;
+}
+
+
+.display-flex {
+  display: flex !important;
+}
+
+.display-none {
+  display: none !important;
+}
+
+.removeIcon {
+  height: 0%;
+}
+
+.card-header {
+  background-color: white;
+}
+
+.ml-10 {
+  margin-left: 10px;
+}
