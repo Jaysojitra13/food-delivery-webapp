@@ -90,9 +90,9 @@ $(document).ready(function() {
   for (let i=0; i<allRemoveItems.length; i++) {
     let btn = allRemoveItems[i];
     btn.addEventListener('click', () => {
-      cartItems.splice(i, 1);
-      renderCardItems(cartItems);
-      // $(`#item${i}`).remove();
+      // cartItems.splice(i, 1);
+      // renderCardItems(cartItems);
+      $(`#item${i}`).remove();
     });
   }
 
