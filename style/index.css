@@ -1,11 +1,18 @@
 body {
   font-family: “Open Sans”, Arial, sans-serif;
-  color: black;
+  /* color: black; */
+  position: relative;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  width: 100%;
+  /* font-family: "Times New Roman", Times, serif; */
+  font-size: 20px;
 }
 
 .navbar {
   border-radius: 0px;
-  background-color: #4a2e2e !important;
+  background-color: #1abc9c !important;
   border-color: none !important;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -27,4 +34,14 @@ body {
   color: #fff !important;
   background-color: #cf9f9fb8 !important;
   border-radius: 10px;
+}
+
+.main-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+html {
+  height: 100%;
 }
