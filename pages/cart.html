@@ -52,29 +52,105 @@
     <!-- Navbar ends -->
     <div class="container">
       <div class="card">
-        <div class="card-header"><p class="h3">Cart Items</p></div>
 
         <!-- Cart data -->
         <div class="card-body" id="cardBody">
           <!-- static data -->
-          
+          <table class="table table-responsive table-borderless">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="cart-info">
+                    <img src="../images/pizza1.jpg" alt="pizza" class="cartImage" />
+                    <div>
+                      <p class="cart-item-name">Pizza</p>
+                      <small>Price: $15.00</small>
+                      <br>
+                      <a>Remove</a>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <input
+                    type="number"
+                    value="1"
+                    class="form-control form-control-sm quantity"
+                    id="quantityNumber1"
+                  />
+                </td>
+                <td>$15.00</td>
+              </tr>
+              
+              <tr>
+                <td>
+                  <div class="cart-info">
+                    <img src="../images/pasta1.jpg" alt="pizza" class="cartImage" />
+                    <div>
+                      <p class="cart-item-name">Pasta</p>
+                      <small>Price: $20.00</small>
+                      <br>
+                      <a>Remove</a>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <input
+                    type="number"
+                    value="1"
+                    class="form-control form-control-sm quantity"
+                    id="quantityNumber1"
+                  />
+                </td>
+                <td>$20.00</td>
+              </tr>
+
+              <tr>
+                <td class="border-top-green"></td>
+                <td class="border-top-green">Subtotal</td>
+                <td class="border-top-green">$35.00</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Tax</td>
+                <td>$5.00</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Total</td>
+                <td>$40.00</td>
+              </tr>
+            </tbody>
+          </table>
+
           <!-- <div class="d-flex flex-row">
             <img src="../images/pizza1.jpg" alt="pizza" class="cartImage" />
             <div class="d-flex flex-column cartItemDetails">
               <p class="h5 cartItemName">PIZZA</p>
               <div class="d-flex flex-row ">
-                <i class="fa fa-minus minusIcon" aria-hidden="true" id="decreaseQuantity0"></i>
+                
+                <button class="btn btn-secondary">
+                  <i class="fa fa-minus" aria-hidden="true" id="decreaseQuantity1"></i>
+                </button>
                 <input
                   type="number"
                   value="1"
                   class="form-control form-control-sm quantity"
-                  id="quantityNumber0"
+                  id="quantityNumber1"
                 />
-                <i class="fa fa-plus plusIcon" aria-hidden="true" id="increateQuantity0"></i>
+                <button class="btn btn-secondary ml-10">
+                  <i class="fa fa-plus" aria-hidden="true" id="increateQuantity1"></i>
+                </button>
               </div>
             </div>
             <button class="btn btn-danger removeIcon">
-              <i class="fa fa-remove" aria-hidden="true" id="removeItem0"></i>
+              <i class="fa fa-remove" aria-hidden="true" id="removeItem1"></i>
             </button>
           </div>
           <div class="d-flex flex-row">
@@ -106,17 +182,18 @@
         <!-- payment buttons -->
         <div class="d-flex flex-row">
             <button class="btn btn-secondary wd-100"><a class="addMoreItemButton" href="../pages/menu.html">Add more items</a></button>
-            <button class="btn btn-secondary wd-100">Checkout</button>
+            <button class="btn btn-secondary wd-100 ml-10">Checkout</button>
         </div>
       </div>
     </div>
 
+    <!-- Footer start -->
     <footer class="footer">
       <div class="top">
         <div class="content">
           <a href="" class="logo">HogR</a>
           <p>
-            A small intro about the website
+            One stop solution for your hunger
           </p>
         </div>
   
@@ -124,20 +201,20 @@
           <div class="link">
             <h4>Contact Information</h4>
             <div>
-              <img src="./images/location.png" alt="" />
+              <i class="fa fa-location-pin"></i>
               <span>272 Humber College Blvd.</span>
             </div>
             <div>
-              <img src="./images/sms.svg" alt="" />
+              <i class="fa-sharp fa-regular fa-envelope"></i>
               <span>hogr@humber.ca</span>
             </div>
           </div>
   
           <div class="link">
             <h4>Quick Links</h4>
-            <a href="./pages/menu.html">Menu</a>
-            <a href="./pages/aboutUs.html">About Us</a>
-            <a href="./pages/contactUs.html">Contact Us</a>
+            <a href="./menu.html">Menu</a>
+            <a href="./aboutUs.html">About Us</a>
+            <a href="./contactUs.html">Contact Us</a>
           </div>
   
           <div class="link">
@@ -151,26 +228,27 @@
           <div class="link">
             <h4>Connect with Us</h4>
             <div>
-              <img src="./images/instagram.svg" alt="" />
+              <img src="../images/instagram.svg" alt="" />
               <span>Instagram</span>
             </div>
             <div>
-              <img src="./images/twitter.svg" alt="" />
+              <img src="../images/twitter.svg" alt="" />
               <span>Twitter</span>
             </div>
             <div>
-              <img src="./images/facebook.svg" alt="" />
+              <img src="../images/facebook.svg" alt="" />
               <span>Facebook</span>
             </div>
           </div>
         </div>
       </div>
       <div class="bottom">
-        <p>Copyright © 2023-2024 HogR Company.All rights reserved.</p>
+        <p>Copyright © 2023-2024 HogR Company. All rights reserved.</p>
       </div>
     </footer>
+    <!-- Footer ends -->
     <!-- JS LOAD -->
-    <script src="../script/cart.js"></script>
+    <!-- <script src="../script/cart.js"></script> -->
    
   </body>
 </html>

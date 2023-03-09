@@ -4,6 +4,7 @@ footer {
   position: absolute;
   bottom: 0;
   left: 0;
+  color: white;
 }
 
 .footer .top {
@@ -30,7 +31,7 @@ footer {
   }
   
   .footer .top .content p {
-    color: black;
+    /* color: black; */
     margin-top: 2rem;
     width: 90%;
   }
@@ -47,13 +48,13 @@ footer {
   
   .footer .top .link a {
     display: inline-block;
-    color: black;
+    color: white;
     margin-bottom: 1rem;
     font-size:12px;
   }
   
   .footer .top .link span {
-    color: black;
+    /* color: black; */
     font-size:12px;
   }
   
@@ -73,7 +74,10 @@ footer {
     width:20%;
   }
  
-
+  .footer .top .link div i {
+    margin-right: 1rem;
+    width:20%;
+  }
 
 @media (max-width: 996px) {
     .footer .top {
