@@ -1,23 +1,26 @@
 $(document).ready(function() {
-  const cartItems = [
+  let cartItems = [
     {
       id: 1,
-      name: "PIZZA",
+      name: "Pizza",
       quantity: 1,
-      img: '../images/pizza1.jpg'
+      img: '../images/pizza1.jpg',
+      price: 15.00
     },
     {
       id: 2,
       name: "Pasta",
       quantity: 1,
-      img: '../images/pasta1.jpg'
+      img: '../images/pasta1.jpg',
+      price: 20.00
     },
-    // {
-    //   id: 3,
-    //   name: "Pasta",
-    //   quantity: 1,
-    //   img: '../images/pasta1.jpg'
-    // },
+    {
+      id: 3,
+      name: "Fries",
+      quantity: 2,
+      img: '../images/fries.jpg',
+      price: 10.00
+    },
     // {
     //   id: 4,
     //   name: "Pasta",
@@ -27,36 +30,10 @@ $(document).ready(function() {
   ];
 
   renderCardItems(cartItems);
-
-  // let divString = `
-  //   `
-  // for (let i=0; i<cartItems.length; i++) {
-  //   let item = cartItems[i];
-    
-  //   divString += `
-  //     <div class="d-flex flex-row">
-  //       <img src="../images/pizza1.jpg" alt="pizza" class="cartImage" />
-  //         <div class="d-flex flex-column cartItemDetails">
-  //           <p class="h5 cartItemName">${item.name}</p>
-  //             <div class="d-flex flex-row ">
-  //               <i class="fa fa-minus minusIcon" aria-hidden="true" id="decreaseQuantity${i}"></i>
-  //               <input
-  //                 type="number"
-  //                 value="1"
-  //                 class="form-control form-control-sm quantity"
-  //                 id="quantityNumber${i}"
-  //               />
-  //               <i class="fa fa-plus plusIcon" aria-hidden="true" id="increateQuantity${i}"></i>
-  //             </div>
-  //         </div>
-  //     </div>
-  //   `;
-  // }
-
-  // $('#cardBody').append(divString);
   
   const allIcrementButtons = $("[id^=increateQuantity]");
   console.log("INcre ")
+
   for (let i=0; i< allIcrementButtons.length; i++) {
     let btn = allIcrementButtons[i];
     let inputSelector = `quantityNumber${i}`;
@@ -86,13 +63,17 @@ $(document).ready(function() {
     });
   }
 
-  const allRemoveItems = $("[id^=removeItem]")
+  const allRemoveItems = $("[id^=remove]")
   for (let i=0; i<allRemoveItems.length; i++) {
     let btn = allRemoveItems[i];
-    btn.addEventListener('click', () => {
-      // cartItems.splice(i, 1);
-      // renderCardItems(cartItems);
-      $(`#item${i}`).remove();
+    btn.addEventListener('click', (data) => {
+      const index = data.target.id.slice(data.target.id.length-1)
+      console.log("CLIekc", data.target.id)
+      if (index > -1) {
+        cartItems = cartItems.filter(c => c.id !== +index)
+        console.log(cartItems)
+        renderCardItems(cartItems)
+      }
     });
   }
 
@@ -101,35 +82,59 @@ $(document).ready(function() {
 function renderCardItems(cartItems) {
 
   let divString = '';
+  let subTotal = 0;
+
   for (let i=0; i<cartItems.length; i++) {
     let item = cartItems[i];
-    
+    subTotal += item.quantity * item.price;
+
     divString += `
-      <div class="d-flex flex-row" id="item${i}">
-        <img src="${item.img}" alt="pizza" class="cartImage" />
-        <div class="d-flex flex-column cartItemDetails">
-          <p class="h5 cartItemName">${item.name}</p>
-            <div class="d-flex flex-row ">
-              <button class="btn btn-secondary" id="decreaseQuantity${i}">
-                <i class="fa fa-minus" aria-hidden="true"></i>
-              </button>
-              <input
-                type="number"
-                value="1"
-                class="form-control form-control-sm quantity"
-                id="quantityNumber${i}"
-              />
-              <button class="btn btn-secondary ml-10" id="increateQuantity${i}">
-                <i class="fa fa-plus" aria-hidden="true"></i>
-              </button>
+      <tr>
+        <td>
+          <div class="cart-info">
+            <img src="${item.img}" alt="pizza" class="cartImage" />
+            <div>
+              <p class="cart-item-name">${item.name}</p>
+              <small>Price: $${item.quantity * item.price}</small>
+              <br>
+              <a id='remove${item.id}' class="removeLink">Remove</a>
             </div>
-        </div>
-        <button class="btn btn-danger removeIcon" id="removeItem${i}">
-          <i class="fa fa-remove" aria-hidden="true" ></i>
-        </button>
-      </div>
+          </div>
+        </td>
+        <td>
+          <input
+            type="number"
+            value="${item.quantity}"
+            class="form-control form-control-sm quantity"
+            id="quantityNumber${item.quantity}"
+          />
+        </td>
+        <td>$${item.quantity * item.price}</td>
+      </tr>
     `;
   }
 
-  $('#cardBody').html(divString);
+  // calculate tax and total
+  const taxRate = 13;
+  const taxAmount = ((subTotal*13)/100).toFixed(2);
+  const total = (+subTotal + +taxAmount).toFixed(2);
+
+  divString += `
+    <tr>
+      <td class="border-top-green"></td>
+      <td class="border-top-green">Subtotal</td>
+      <td class="border-top-green" id="subtotal">$${(subTotal).toFixed(2)}</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Tax</td>
+      <td id="tax">$${taxAmount}</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Total</td>
+      <td id="total">$${total}</td>
+    </tr>
+  `;
+  $('#cart-items').html(divString);
 }

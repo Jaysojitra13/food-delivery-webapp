@@ -126,3 +126,7 @@ td:last-child, th:last-child {
   background-color: #1abc9c !important;
   border: none;
 }
+
+.removeLink:hover {
+  cursor: pointer;
+}
