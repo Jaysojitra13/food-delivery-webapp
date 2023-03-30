@@ -1,89 +1,40 @@
+let cartItems = [
+  {
+    id: 0,
+    name: "Pizza",
+    quantity: 1,
+    img: '../images/pizza1.jpg',
+    price: 15.00
+  },
+  {
+    id: 1,
+    name: "Pasta",
+    quantity: 1,
+    img: '../images/pasta1.jpg',
+    price: 20.00
+  },
+  {
+    id: 2,
+    name: "Fries",
+    quantity: 2,
+    img: '../images/fries.jpg',
+    price: 10.00
+  }
+];
+
 $(document).ready(function() {
-  let cartItems = [
-    {
-      id: 1,
-      name: "Pizza",
-      quantity: 1,
-      img: '../images/pizza1.jpg',
-      price: 15.00
-    },
-    {
-      id: 2,
-      name: "Pasta",
-      quantity: 1,
-      img: '../images/pasta1.jpg',
-      price: 20.00
-    },
-    {
-      id: 3,
-      name: "Fries",
-      quantity: 2,
-      img: '../images/fries.jpg',
-      price: 10.00
-    },
-    // {
-    //   id: 4,
-    //   name: "Pasta",
-    //   quantity: 1,
-    //   img: '../images/pasta1.jpg'
-    // }
-  ];
+
+  $("[type='number']").keypress(function (evt) {
+    evt.preventDefault();
+  });
 
   renderCardItems(cartItems);
-  
-  const allIcrementButtons = $("[id^=increateQuantity]");
-  console.log("INcre ")
-
-  for (let i=0; i< allIcrementButtons.length; i++) {
-    let btn = allIcrementButtons[i];
-    let inputSelector = `quantityNumber${i}`;
-    
-    let quantityInput = document.getElementById(inputSelector);
-    console.log("INcre ", quantityInput)
-    btn.addEventListener('click', () => {
-      quantityInput.setAttribute('value', +quantityInput.value + 1);
-    });
-  }
-  
-  const allDecrementButtons = $("[id^=decreaseQuantity]");
-  for (let i=0; i< allDecrementButtons.length; i++) {
-    let btn = allDecrementButtons[i];
-    let inputSelector = `quantityNumber${i}`;
-
-    let quantityInput = document.getElementById(inputSelector);
-    btn.addEventListener('click', () => {
-      console.log("CLLL", quantityInput.value)
-      if (quantityInput.value > 1) {
-        quantityInput.setAttribute('value', +quantityInput.value - 1);
-      }
-      
-      if (+quantityInput.value === 1) {
-        console.log("adsfasdf", btn.id)
-      }
-    });
-  }
-
-  const allRemoveItems = $("[id^=remove]")
-  for (let i=0; i<allRemoveItems.length; i++) {
-    let btn = allRemoveItems[i];
-    btn.addEventListener('click', (data) => {
-      const index = data.target.id.slice(data.target.id.length-1)
-      console.log("CLIekc", data.target.id)
-      if (index > -1) {
-        cartItems = cartItems.filter(c => c.id !== +index)
-        console.log(cartItems)
-        renderCardItems(cartItems)
-      }
-    });
-  }
-
 })
 
-function renderCardItems(cartItems) {
+function renderCardItems() {
 
   let divString = '';
   let subTotal = 0;
-
   for (let i=0; i<cartItems.length; i++) {
     let item = cartItems[i];
     subTotal += item.quantity * item.price;
@@ -95,19 +46,25 @@ function renderCardItems(cartItems) {
             <img src="${item.img}" alt="pizza" class="cartImage" />
             <div>
               <p class="cart-item-name">${item.name}</p>
-              <small>Price: $${item.quantity * item.price}</small>
+              <small>Price: $${item.price}</small>
               <br>
               <a id='remove${item.id}' class="removeLink">Remove</a>
             </div>
           </div>
         </td>
-        <td>
+        <td class="quantity">
+          <button class="btn btn-success" id="decreaseQuantity${item.id}">
+            <i class="fa fa-minus" aria-hidden="true" ></i>
+          </button>
           <input
             type="number"
             value="${item.quantity}"
             class="form-control form-control-sm quantity"
-            id="quantityNumber${item.quantity}"
+            id="quantityNumber${item.id}"
           />
+          <button class="btn btn-success" id="increaseQuantity${item.id}">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+          </button>
         </td>
         <td>$${item.quantity * item.price}</td>
       </tr>
@@ -137,4 +94,62 @@ function renderCardItems(cartItems) {
     </tr>
   `;
   $('#cart-items').html(divString);
+
+  addRemoveButtonEventListener();
+
+  addQuantityButtonEventListener();
+}
+
+function addRemoveButtonEventListener() {
+  const allRemoveItems = $("[id^=remove]")
+  for (let i=0; i<allRemoveItems.length; i++) {
+    let btn = allRemoveItems[i];
+    btn.addEventListener('click', (data) => {
+      const index = data.target.id.slice(data.target.id.length-1)
+      if (index > -1) {
+        cartItems = cartItems.filter(c => c.id !== +index)
+        renderCardItems(cartItems);
+        // addRemoveButtonEventListener();
+        // addQuantityButtonEventListener();
+      }
+    });
+  }
+}
+
+function addQuantityButtonEventListener() {
+  const allIcrementButtons = $("[id^=increaseQuantity]");
+  for (let btn of allIcrementButtons) {
+    btn.addEventListener('click', (data) => {
+      console.log(data.target.id)
+      const index = +data.target.id.slice(data.target.id.length-1)
+      let inputSelector = `quantityNumber${index}`;
+      let quantityInput = document.getElementById(inputSelector);
+      setNewQuantity(index, +quantityInput.value + 1);
+      renderCardItems()
+      quantityInput.setAttribute('value', +quantityInput.value + 1);
+    });
+  }
+  
+  const allDecrementButtons = $("[id^=decreaseQuantity]");
+  for (let btn of allDecrementButtons) {
+    btn.addEventListener('click', (data) => {
+      const index = +data.target.id.slice(data.target.id.length-1)
+      let inputSelector = `quantityNumber${index}`;
+      let quantityInput = document.getElementById(inputSelector);
+      if (quantityInput.value > 1) {
+        setNewQuantity(index, +quantityInput.value - 1);
+        renderCardItems()
+        quantityInput.setAttribute('value', +quantityInput.value - 1);
+      }
+    });
+  }
+}
+
+function setNewQuantity(index, quantity) {
+  for(let ci of cartItems) {
+    if (ci.id === index) {
+      ci["quantity"] = quantity;
+    }
+  }
+  console.log(cartItems)
 }
