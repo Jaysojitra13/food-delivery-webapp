@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>HogR</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../style/header.css">
+    <link rel="stylesheet" type="text/css" href="../../style/footer.css">
+    <link rel="stylesheet" type="text/css" href="../../style/menu.css">
+    <link rel="stylesheet" type="text/css" href="location.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  </head>
+
+  <body>
+    <div class="main-navbar">
+      <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="javascript:void(0)">HogR</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-center" id="mynavbar">
+            <!-- <ul class="navbar-nav me-auto "></ul> -->
+            <div class="d-flex">
+              <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="../../index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="javascript:void(0)">Menu</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../cart.html">Cart</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../aboutUs.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="./location.html">Location</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../contactUs.html">Contact Us</a>
+                </li>
+                
+              </ul>
+            </div>
+          </div>
+          <div class="d-flex flex-row authButtons">
+            <button type="button" class="btn btn-success login">Login</button>
+            <button type="button" class="btn btn-success">Sign Up</button>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!-- Location-->
+<div>
+    <h1 class="locatio">Our Location</h1>   
+    <div class="location">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2883.120331424663!2d-79.60876858502128!3d43.72882705555602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b3a5391c12321%3A0x747f0c3b5cdecaa0!2sHumber%20College!5e0!3m2!1sen!2sca!4v1680108796604!5m2!1sen!2sca" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>"
+    </div>
+    <div class="loc">
+    <h2>Food delivery locations</h2>
+    <p>Order online for HogR's superfast delivery or pickup</p>
+    <input id="searchbar" onkeyup="search_loc()" type="text"
+        name="search" placeholder="Search location..">
+    </div>
+    
+
+    <h3 id="avail">Available Locations</h3>
+    <ol class='list'>
+        <div class="grid">
+        <li class="loca">Ajax</li>
+        <li class="loca">Barrie</li>
+        <li class="loca">Belleville</li>
+        <li class="loca">Brampton</li>
+        <li class="loca">Brantford</li>
+        </div>
+        <div class="grid">
+        <li class="loca">Downtown</li>
+        <li class="loca">Etobicoke</li>
+        <li class="loca">Hamilton</li>
+        <li class="loca">Kingston</li>
+        <li class="loca">Milton</li>
+        </div>   
+        <div class="grid">  
+        <li class="loca">Mississauga</li>
+        <li class="loca">Niagara Falls</li>
+        <li class="loca">North York</li>
+        <li class="loca">Oakville</li>
+        <li class="loca">Oshawa</li>
+        </div>
+        <div class="grid">
+        <li class="loca">Richmond Hill</li>
+        <li class="loca">Thunder Bay</li>
+        <li class="loca">Sarnia</li>
+        <li class="loca">Toronto</li>
+        <li class="loca">Waterloo</li>
+        </div>
+    </ol>
+</div>
+    
+    <!--Location Ends-->
+    <footer class="footer">
+        <div class="top">
+          <div class="content">
+            <a href="" class="logo">HogR</a>
+            <p>
+              One stop solution for your hunger
+            </p>
+          </div>
+    
+          <div class="links">
+            <div class="link">
+              <h4>Contact Information</h4>
+              <div>
+                <i class="fa fa-location-pin"></i>
+                <span>272 Humber College Blvd.</span>
+              </div>
+              <div>
+                <i class="fa-sharp fa-regular fa-envelope"></i>
+                <span>hogr@humber.ca</span>
+              </div>
+            </div>
+    
+            <div class="link">
+              <h4>Quick Links</h4>
+              <a href="../Location/">Menu</a>
+              <a href="../aboutUs.html">About Us</a>
+              <a href="../contactUs.html">Contact Us</a>
+            </div>
+    
+            <div class="link">
+              <h4>Legal</h4>
+              <a href="privacy.html">Privacy Policy</a>
+              <a href="terms.html">Term of Use</a>
+              <a href="terms.html">Conditions</a>
+              <a href="location.html">Location</a>
+            </div>
+    
+            <div class="link">
+              <h4>Connect with Us</h4>
+              <div>
+                <img src="../../images/instagram.svg" alt="" />
+                <a href="https://www.instagram.com/"><span>Instagram</span></a>
+              </div>
+              <div>
+                <img src="../../images/twitter.svg" alt="" />
+                <a href="https://twitter.com/?lang=en-ca"><span>Twitter</span></a>
+              </div>
+              <div>
+                <img src="../../images/facebook.svg" alt="" />
+                <a href="https://www.facebook.com/"><span>Facebook</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bottom">
+          <p>Copyright © 2023-2024 HogR Company. All rights reserved.</p>
+        </div>
+      </footer>
+      <!-- Footer ends -->
+      <!-- JS LOAD -->
+      <script>
+        function search_loc() {
+    let input = document.getElementById('searchbar').value
+    input=input.toLowerCase();
+    let x = document.getElementsByClassName('loca');
+      
+    for (i = 0; i < x.length; i++) { 
+        if (!x[i].innerHTML.toLowerCase().includes(input)) {
+            x[i].style.display="none";
+        }
+        else {
+            x[i].style.display="list-item";                 
+        }
+    }
+}
+    </script>
+      
+     
+    </body>
+</html>
