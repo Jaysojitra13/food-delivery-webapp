@@ -29,6 +29,13 @@ $(document).ready(function() {
   });
 
   renderCardItems(cartItems);
+
+  const paymentButton = document.getElementById('paymentButton');
+  paymentButton.addEventListener('click', (data) => {
+    console.log("OK clicked");
+    $('.modal-body').html('Thank you for the payment!');
+    
+  })
 })
 
 function renderCardItems() {
@@ -75,6 +82,8 @@ function renderCardItems() {
   const taxRate = 13;
   const taxAmount = ((subTotal*13)/100).toFixed(2);
   const total = (+subTotal + +taxAmount).toFixed(2);
+
+  $('#totalAmount').html(`$${total}`);
 
   divString += `
     <tr>
@@ -151,5 +160,4 @@ function setNewQuantity(index, quantity) {
       ci["quantity"] = quantity;
     }
   }
-  console.log(cartItems)
 }
