@@ -24,6 +24,8 @@ let cartItems = [
 
 $(document).ready(function() {
 
+  let isPaymentDone = false;
+
   $("[type='number']").keypress(function (evt) {
     evt.preventDefault();
   });
@@ -32,9 +34,13 @@ $(document).ready(function() {
 
   const paymentButton = document.getElementById('paymentButton');
   paymentButton.addEventListener('click', (data) => {
-    console.log("OK clicked");
     $('.modal-body').html('Thank you for the payment!');
-    
+
+    if (isPaymentDone) {
+      window.location.href = '../index.html'
+    } else {
+      isPaymentDone = !isPaymentDone;
+    }
   })
 })
 
