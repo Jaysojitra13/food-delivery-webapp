@@ -24,11 +24,24 @@ let cartItems = [
 
 $(document).ready(function() {
 
+  let isPaymentDone = false;
+
   $("[type='number']").keypress(function (evt) {
     evt.preventDefault();
   });
 
   renderCardItems(cartItems);
+
+  const paymentButton = document.getElementById('paymentButton');
+  paymentButton.addEventListener('click', (data) => {
+    $('.modal-body').html('Thank you for the payment!');
+
+    if (isPaymentDone) {
+      window.location.href = '../index.html'
+    } else {
+      isPaymentDone = !isPaymentDone;
+    }
+  })
 })
 
 function renderCardItems() {
@@ -75,6 +88,8 @@ function renderCardItems() {
   const taxRate = 13;
   const taxAmount = ((subTotal*13)/100).toFixed(2);
   const total = (+subTotal + +taxAmount).toFixed(2);
+
+  $('#totalAmount').html(`$${total}`);
 
   divString += `
     <tr>
@@ -151,5 +166,4 @@ function setNewQuantity(index, quantity) {
       ci["quantity"] = quantity;
     }
   }
-  console.log(cartItems)
 }
