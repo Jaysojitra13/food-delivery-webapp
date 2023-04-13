@@ -239,3 +239,12 @@
 .review .review-box .review-card:hover .review-text p{
   margin-top: 5px;
 }
+
+.lsbtn{
+  text-decoration: none;
+  color: white;
+}
+
+.lsbtn:hover{
+  color: white;
+}
