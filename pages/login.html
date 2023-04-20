@@ -35,21 +35,22 @@
         const wrapper = document.querySelector(".wrapper"),
           loginHeader = document.querySelector(".login header");
 
-        loginHeader.addEventListener("click", () => {
-          wrapper.classList.add("active");
-        });
+        // loginHeader.addEventListener("click", () => {
+        //   wrapper.classList.add("active");
+        // });
 
         const form = document.getElementById("form");
         const email = document.getElementById("email");
         const password = document.getElementById("password");
 
+        console.log(form)
         form.addEventListener("submit", (e) => {
           e.preventDefault();
 
           if (validateInputs) {
-            window.location.assign("/web-proramming-project/index.html");
+            window.location.assign("../index.html");
           } else {
-            window.location.assign("/web-proramming-project/pages/login.html");
+            window.location.assign("./login.html");
           }
         });
 
