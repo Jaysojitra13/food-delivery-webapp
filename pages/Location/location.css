@@ -42,7 +42,7 @@
   }
   .list{
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto;
     padding: 10px;
     color:#1abc9c;
   }
@@ -61,3 +61,6 @@
  #avail{
     color:#1abc9c;
  }
+
+
+ 
