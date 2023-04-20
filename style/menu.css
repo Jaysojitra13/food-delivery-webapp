@@ -459,3 +459,8 @@ h5{
     background: none;
   }
 }
+
+.login > a, .login > a:hover{
+  text-decoration: none;
+  color: white;
+}

@@ -73,3 +73,8 @@ h1{
     top: calc(50% - 60px);
     left: calc(50% - 60px);
  }
+
+ .login > a, .login > a:hover{
+    text-decoration: none;
+    color: white;
+  }

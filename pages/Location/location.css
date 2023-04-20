@@ -63,4 +63,8 @@
  }
 
 
- 
+
+ .login > a, .login > a:hover{
+  text-decoration: none;
+  color: white;
+}

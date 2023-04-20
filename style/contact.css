@@ -414,3 +414,8 @@ textarea.input {
         padding: 0.45rem 1.2rem;
     }
 }
+
+.login > a, .login > a:hover{
+    text-decoration: none;
+    color: white;
+  }

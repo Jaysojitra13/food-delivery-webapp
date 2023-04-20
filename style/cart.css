@@ -154,3 +154,8 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none; 
   margin: 0; 
 }
+
+.login > a, .login > a:hover{
+  text-decoration: none;
+  color: white;
+}
