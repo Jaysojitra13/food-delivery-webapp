@@ -147,12 +147,36 @@
             </tbody>
           </table>
 
+          <!-- payment buttons -->
+          <div class="d-flex flex-row">
+              <button class="btn btn-secondary wd-100"><a class="addMoreItemButton" href="../pages/menu.html">Add more items</a></button>
+              <button class="btn btn-secondary wd-100 ml-10" data-bs-toggle="modal" data-bs-target="#myModal">Checkout</button>
+          </div>
         </div>
 
-        <!-- payment buttons -->
-        <div class="d-flex flex-row">
-            <button class="btn btn-secondary wd-100"><a class="addMoreItemButton" href="../pages/menu.html">Add more items</a></button>
-            <button class="btn btn-secondary wd-100 ml-10">Checkout</button>
+        <div class="modal" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+        
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Payment Confirmation</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+        
+              <!-- Modal body -->
+              <div class="modal-body">
+                Please confirm the total amount: <span id="totalAmount">$</span>
+              </div>
+        
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="paymentButton">OK</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">close</button>
+              </div>
+        
+            </div>
+          </div>
         </div>
       </div>
     </div>
